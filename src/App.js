@@ -11,7 +11,7 @@ import { getPlacesData } from "./api";
 const App = () => {
     const [places, setPlaces] = useState([]);
     const [coordinates, setCoordinates] = useState({});
-    const [bounds, setBounds] = useState({ne: {lat: 37.784104136989654, lng: -122.40632682000732}, sw: {lat: 37.765752724213485, lng: -122.43250517999267}});
+    const [bounds, setBounds] = useState({});
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}}) => {

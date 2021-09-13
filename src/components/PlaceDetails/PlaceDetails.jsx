@@ -2,7 +2,7 @@ import React from 'react';
 import {Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip} from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PhoneIcon from '@material-ui/icons/Phone';
-import { Rating } from '@material-ui/lab';
+import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
 
@@ -21,6 +21,12 @@ const PlaceDetails = ({place}) => {
                         {place.name}
                     </Typography>
                     <Box display="flex" justifyContent="space-between">
+                        <Rating name="read-only" value={Number(place.rating)} readOnly />
+                        <Typography variant="subtitle1">
+                            Out of {place.num_reviews} reviews
+                        </Typography>
+                    </Box>
+                    <Box display="flex" justifyContent="space-between">
                         <Typography variant="subtitle1">
                             Price
                         </Typography>
@@ -36,7 +42,7 @@ const PlaceDetails = ({place}) => {
                             {place.ranking}
                         </Typography>
                     </Box>
-                    
+
                     {place != undefined && place != null && place.awards != undefined && place.awards != null ? place.awards.map((award) => (
                         <Box my={1} display="flex" justifyContent="space-between" alignItems="center">
                             <img src={award.images.small} alt={award.display_name} />
